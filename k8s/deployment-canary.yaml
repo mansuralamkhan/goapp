@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: your-app
-        image: your-aws-account-id.dkr.ecr.your-region.amazonaws.com/your-repo-name:latest
+        image: 183991395055.dkr.ecr.us-east-1.amazonaws.com/goapp:latest
         ports:
         - containerPort: 8080

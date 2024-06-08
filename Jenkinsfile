@@ -3,7 +3,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "183991395055.dkr.ecr.us-east-1.amazonaws.com/goapp"
         ECR_LOGIN = 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 183991395055.dkr.ecr.us-east-1.amazonaws.com'
-        // KUBECONFIG_CREDENTIALS = credentials('your-kubeconfig-credentials-id')
+        KUBECONFIG_CREDENTIALS = credentials('kubeconfig-credential-id')
     }
     stages {
         stage('Checkout') {
@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Deploy Canary') {
             steps {
-                withCredentials([file(credentialsId: 'your-kubeconfig-credentials-id', variable: 'KUBECONFIG')]) {
+                withCredentials([file(credentialsId: 'kubeconfig-credential-id', variable: 'KUBECONFIG')]) {
                     sh 'kubectl --kubeconfig=$KUBECONFIG apply -f k8s/deployment-canary.yaml'
                 }
             }
