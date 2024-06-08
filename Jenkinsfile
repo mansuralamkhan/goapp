@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = "183991395055.dkr.ecr.us-east-1.amazonaws.com/goapp"
-        ECR_LOGIN = 'aws ecr get-login-password --region your-region | docker login --username AWS --password-stdin 183991395055.dkr.ecr.us-east-1.amazonaws.com'
+        ECR_LOGIN = 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 183991395055.dkr.ecr.us-east-1.amazonaws.com'
         // KUBECONFIG_CREDENTIALS = credentials('your-kubeconfig-credentials-id')
     }
     stages {
