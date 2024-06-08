@@ -21,3 +21,5 @@ spec:
         image: 183991395055.dkr.ecr.us-east-1.amazonaws.com/goapp:latest
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+      - name: ecr-secret
